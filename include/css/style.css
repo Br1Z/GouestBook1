@@ -20,14 +20,15 @@ textarea.form-control{
 	border-radius: 15px;
 }
 
-.block_reviews{
+/*.block_reviews{
  	margin-top: 15px;
  	margin-bottom: 15px;
   	width: 1098px;
   	overflow: hidden;
-}
+}*/
 .reviews{
-
+	margin-top: 15px;
+ 	margin-bottom: 15px;
 	width: 1100px;
   	height: 600px;
  	overflow:auto;
@@ -47,10 +48,9 @@ textarea.form-control{
 	margin-top: -200px;
 	margin-left: 770px; 
 }
-
-.advancedSearchblock{
-	font-size: 10px;
-
+.imgSearch{
+	width: 20px;
+	height: 20px;
 }
 .advancedSearch{
 	padding: 1px;
@@ -61,12 +61,16 @@ textarea.form-control{
 
 /* ADVANCEDSEARCH.PHP*/
 
-.inputSearch input{
+.distanceInputSearch{
 	margin-bottom: 8px;
 }
 .inputSearch{
 	margin-left: -20px; 
 }
-.btnSubmit{
+.btnAdvancedSearch{
 	margin-bottom: 10px; 
+}
+.linkhome{
+	text-decoration: none;
+	color:#000000;
 }

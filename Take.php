@@ -7,25 +7,25 @@ require "include/lib/db.php";
 			<table style="width: 1000px;" class="container" align="" border="1">
 					<tr align="center">
 					<th width="100">Имя</th> 
-					<th width="100">Email</th> 
+					<th width="80">Email</th> 
 					<th width="350">Сообщение</th> 
 					<th width="120">Ссылка</th>
 					<th width="150">Тег</th>  
-					<th width="">Опубликованно</th> 
+					<th >Опубликованно</th> 
 			</tr>
 			<?php
 			foreach ($reviews as $review) {
 
-					echo "<tr>".
-					"<th>". $review['name'] . "</th>". //вывод имени
-					"<th>". $review['email'] . "</th>". // вывод емайла
-					"<th>". $review['message'] . "</th>";// вывод сообщения
-					if (($review['homepage']) == '') {//  вывод ссылки
-						echo "<th>"."Ссылки нету"."</th>";					
+					echo "<tr >".
+					"<th style='padding: 5px;'>". $review['name'] . "</th>". //вывод имени
+					"<th style='padding: 5px;'>". $review['email'] . "</th>". // вывод емайла
+					"<th style='padding: 5px;'>". $review['message'] . "</th>";// вывод сообщения
+					if (($review['link']) == '') {//  вывод ссылки
+						echo "<th style='padding: 5px;'>"."Ссылки нету"."</th>";					
 					}else{
-						echo "<th>".$review['homepage']."</th>";
+						echo "<th style='padding: 5px;'>".$review['link']."</th>";
 					}
-					echo "<th>".$review['tags']."</th>";// вывод тегов
+					echo "<th style='padding: 5px;'>".$review['tags']."</th>";// вывод тегов
 							// выввод времени
 							$SelectDate = htmlspecialchars($review['created_at']);
 							$SelectDate = date('d.m.Y H:i', strtotime($SelectDate));
@@ -39,10 +39,10 @@ require "include/lib/db.php";
 
 /*
 
-<?php if(($review['homepage']) == ''): ?>
+<?php if(($review['link']) == ''): ?>
 							<span>Сслыки нету</span>
 						<?php else :?>
-							<span><?php echo $review['homepage'];?> </span> <br>
+							<span><?php echo $review['link'];?> </span> <br>
 						<?php endif; ?>
 
 

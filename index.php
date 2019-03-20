@@ -7,36 +7,27 @@ require "include/lib/db.php";
 	<title>Гостевая книга</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="include/css/style.css">
+	  
 	<script src="include/js/jquery-3.3.1.js"></script>
 	<script src="include/js/ajax.js"></script>
 </head>
 <body>
-	<div align="center" class="container">
-		<h1>Гостевая книга</h1>
-	</div>
+	
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">Гостевая книга</a>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <form class=" form-inline  my-3 my-lg-0" id="fromSearch">
-		     <!-- form-inline -->
-			      	<div>
-			      		<input class="form-control mr-sm-2" name="search" type="text" placeholder="Искать"><br>
-			      	<!-- <a class="nav-link " href="#"> Рассширенный поиск</a> -->
-				  		 <ul class="navbar-nav advancedSearchblock mr-auto">
+	  					<ul class="navbar-nav mr-auto">
 					      <li class="nav-item">
-					        <a class="nav-link advancedSearch" href="AdvancedSearch.php"> Рассширенный поиск</a>
+					        <a class="nav-link advancedSearch" title="Поиск" href="AdvancedSearch.php"><img class="imgSearch" src="include/picter/search.png"> Поиск</a>
 					      </li>
 					    </ul>
-			      	</div>
-					<div class="buttonsSearch">
-						<input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search" value="Поиск">
-						<input class="btn btn-outline-danger my-2 my-sm-0" type="reset" name="clearSearch" id="clearSearch">   
-					</div>
-	    </form>
+					    <button class="btn btn-info" id="addReview">Добавить 50 записей</button>
   </div>
 	
 </nav>
-<!-- <a href="tester/ne_ebet.php">asdasd</a> -->
-<div class="container block_reviews"><!-- Вывод сообщений -->
+
+<!-- Вывод сообщений -->
+<!-- <div class="container block_reviews"> -->
 	<div class="container reviews" id="reviews">
 		
 	</div>
@@ -45,21 +36,22 @@ require "include/lib/db.php";
 <hr class="separator">
 <div class="container alert-danger" id="content"></div> <!-- Вывод ошибок -->
 <div class="container">
+
 	<form id="formSend" action="" method="POST" >
 		<div class="row">
 				<div class="col-md-2">
 					<label>Имя</label>
-					<input class="form-control" type="text" name="username">
+					<input class="form-control" type="text" name="username" >
 				</div>
 				<div class="col-md-3">
 					<label>Email</label>
-					<input class="form-control" type="email" name="email">
+					<input class="form-control" type="email" name="email" id="email">
 				</div>
 		</div>
 		<div class="row">
 			<div class="col-md-3">
 				<label>Ссылка</label>
-				<input class="form-control" type="text" name="homepage">
+				<input class="form-control" type="url" name="link">
 			</div>
 			
 		</div>
@@ -101,11 +93,10 @@ require "include/lib/db.php";
 		</div>
 		<div class="row">
 			<div class="col-md-2">
-				<input class="btn btn-success submit" onclick="reload()" type="submit" name="Sendreview">
+				<input class="btn btn-success submit" type="submit" name="Sendreview" id="Sendreview">
 			</div>
 		</div>
 	</form>
-	<!-- <a href="" class="refresher"><img  id="refresh" src="include/picter/refresh.png"></a> -->
 	<button class="btn btn-link refresher" id="refresh">Обновить</button><!-- Добовление сообщения -->
 </div>
 

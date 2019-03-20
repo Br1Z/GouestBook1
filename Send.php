@@ -1,7 +1,6 @@
 <?php
 require "include/lib/db.php";
 session_start();
-// echo "ГАГА БУБУ";
 	$data = $_POST;
 	$errors = array();
 		if($data['username'] == ''){
@@ -13,18 +12,14 @@ session_start();
 		if($data['message'] == ''){
 		 	$errors[]= 'Заполниете поле "Сообщение"';
 		}
-		// if($data['captcha'] == ''){
-		//  	$errors[]= 'Введите проверочный код';
-		// }
-		// else 
-			if($data['captcha'] != $_SESSION['random_code']){
+		if($data['captcha'] != $_SESSION['random_code']){
 		 	$errors[]= 'Проверочный код введен не верно';
 		}
 		if(empty($errors)){
 			$review = R::dispense('reviews');
 			$review->name = $data['username'];
 			$review->email = $data['email'];
-			$review->homepage = $data['homepage'];
+			$review->link = $data['link'];
 			$review->message = $data['message'];
 			$review->tags = $data['tags'];
 			$review->createdAt = date('Y-m-d H:i:s');
